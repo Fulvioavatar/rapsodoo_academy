@@ -14,7 +14,7 @@ class Garage(models.Model):
     )
 
     vehicles_number = fields.Integer(
-        string="Vehicles Number",
+        string="Max vehicles Number",
     )
 
     ceiling_height = fields.Float(
@@ -22,7 +22,7 @@ class Garage(models.Model):
     )
 
     vehicles_number_compute = fields.Integer(
-        string="Vehicles Number Compute",
+        string="Vehicles Number effective",
         compute="_compute_vechicle_numbers",
         store=True,
     )
@@ -53,7 +53,8 @@ class Garage(models.Model):
                 
     def unlink(self):
         vehicle_ids = self.env['vehicle.vehicle'].search([('garage_id', '=', self.id)])
-        
+        for veichle in vehicle_ids:
+            veichle.unlink()
         #Scrivere codice per eliminare i veicoli associati a questo garage.
         #Hint: usare ciclo for su vehicle_ids e metoodo unlink()
         

@@ -10,6 +10,10 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="license_plate"/>
+                        <field name="vehicle_type"/>
+                        <field name="registration_year"/>
+                        <field name="daily_fare"/>
                         <field name="garage_id"/>
                     </group>
                 </sheet>
@@ -24,6 +28,11 @@
         <field name="arch" type="xml">
             <tree string="Garage List">
                 <field name="name"/>
+                <field name="license_plate"/>
+                <field name="vehicle_type"/>
+                <field name="registration_year"/>
+                <field name="daily_fare"/>
+                <field name="garage_id"/>
             </tree>
         </field>
     </record>
